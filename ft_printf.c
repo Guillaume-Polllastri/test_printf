@@ -6,7 +6,7 @@
 /*   By: gpollast <gpollast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 15:56:09 by gpollast          #+#    #+#             */
-/*   Updated: 2025/05/13 16:52:33 by gpollast         ###   ########.fr       */
+/*   Updated: 2025/05/13 17:07:28 by gpollast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ int	ft_printf(const char *p_conv, char *str)
 	if (a == 'x')
 	if (a == 'X')
 	if (a == '%')*/
+	free(conv_str);
 	return (0);
 }
