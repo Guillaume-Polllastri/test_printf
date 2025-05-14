@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpollast <gpollast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/13 16:57:46 by gpollast          #+#    #+#             */
-/*   Updated: 2025/05/14 11:31:43 by gpollast         ###   ########.fr       */
+/*   Created: 2025/05/14 11:29:48 by gpollast          #+#    #+#             */
+/*   Updated: 2025/05/14 11:31:07 by gpollast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libftprint.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
+void	ft_putstr(char *str)
+{
+	int	i;
 
-int		ft_printf(const char *p_conv, char *str);
-void	ft_putchar(char c);
-void	ft_putstr(char *str);
-
-#endif
+	i = 0;
+	while (str[i])
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+}
