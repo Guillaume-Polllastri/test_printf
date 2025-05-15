@@ -6,7 +6,7 @@
 /*   By: gpollast <gpollast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 15:56:09 by gpollast          #+#    #+#             */
-/*   Updated: 2025/05/15 11:53:18 by gpollast         ###   ########.fr       */
+/*   Updated: 2025/05/15 14:14:13 by gpollast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,18 @@ int	ft_printf(const char *str, ...)
 	va_start(ap, str);
 	while (str[i])
 	{
-		a = *ft_strchr(conv_str, str[i + 1]);
+		if (ft_strchr(conv_str, str[i + 1]))
+			a = *ft_strchr(conv_str, str[i + 1]);
+		else
+			a = 0;
 		if (str[i] == '%' && a)
 		{
 			convert(a, ap);
 			i++;
 		}
 		else
-		{
 			ft_putchar(str[i]);
-			i++;
-		}
+		i++;
 	}
 	va_end(ap);
 	return (0);
