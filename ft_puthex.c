@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpollast <gpollast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/13 16:57:46 by gpollast          #+#    #+#             */
-/*   Updated: 2025/05/15 14:45:13 by gpollast         ###   ########.fr       */
+/*   Created: 2025/05/15 14:40:17 by gpollast          #+#    #+#             */
+/*   Updated: 2025/05/15 14:42:29 by gpollast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libftprintf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
+void	ft_puthex(int n)
+{
+	char	res;
 
-int		ft_printf(const char *str, ...);
-void	ft_putchar(char c);
-void	ft_putstr(char *str);
-void    ft_putnbr(int n);
-void    ft_puthex(int n);
-
-#endif
+	if (n == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return ;
+	}
+	if (n < 0)
+	{
+		ft_putchar('-');
+		n *= -1;
+	}
+	if (n > 9)
+		ft_puthex((n / 16));
+	res = (n % 16) + '0';
+	ft_putchar(res);
+}
