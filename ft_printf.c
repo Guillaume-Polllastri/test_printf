@@ -6,55 +6,56 @@
 /*   By: gpollast <gpollast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 15:56:09 by gpollast          #+#    #+#             */
-/*   Updated: 2025/05/16 10:01:58 by gpollast         ###   ########.fr       */
+/*   Updated: 2025/05/16 14:29:21 by gpollast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "libftprintf.h"
 
-void	convert(char a, va_list ap)
+int	convert(char a, va_list ap)
 {
+	int	len;
+
+	len = 0;
 	if (a == 'c')
-		return(ft_putchar((char) va_arg(ap, int)));
+		return(ft_putchar_len((char) va_arg(ap, int)));
 	if (a == 's')
-		return(ft_putstr(va_arg(ap, char *)));
+		return(ft_putstr_len(va_arg(ap, char *)));
 	//if (a == 'p')
 	if (a == 'd' || a == 'i')
-		return(ft_putnbr( (int) va_arg(ap, int)));
+		return(ft_putnbr_len((int) va_arg(ap, int)));
 	/*if (a == 'u')
 	if (a == 'x')
 	if (a == 'X')*/
 	if (a == '%')
-		return(ft_putchar('%'));
+		return(ft_putchar_len('%'));
+	return(0);
 }
 
 int	ft_printf(const char *str, ...)
 {
-	char	*conv_str;
 	int		i;
-	char	a;
-	va_list	ap;  
+	va_list	ap;
+	int		len;  
 
-	conv_str = (char *) ft_calloc(10, sizeof(char));
-	conv_str = ft_memcpy(conv_str, "cspdiuxX%", 9);
 	i = 0;
+	len = 0;
 	va_start(ap, str);
 	while (str[i])
 	{
-		if (ft_strchr(conv_str, str[i + 1]))
-			a = *ft_strchr(conv_str, str[i + 1]);
-		else
-			a = 0;
-		if (str[i] == '%' && a)
+		if (str[i] == '%')
 		{
-			convert(a, ap);
+			len += convert(str[i + 1], ap);
 			i++;
 		}
 		else
-			ft_putchar(str[i]);
+		{
+			ft_putchar_len(str[i]);
+			len++;
+		}
 		i++;
 	}
 	va_end(ap);
-	return (0);
+	return (len);
 }

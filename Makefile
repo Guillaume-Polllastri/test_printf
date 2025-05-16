@@ -6,7 +6,7 @@
 #    By: gpollast <gpollast@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/27 21:14:10 by gpollast          #+#    #+#              #
-#    Updated: 2025/05/15 14:43:10 by gpollast         ###   ########.fr        #
+#    Updated: 2025/05/16 11:42:03 by gpollast         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,9 @@ TARGET = a.out
 MAKE = make
 SRCS =	main.c \
 		ft_printf.c \
-		ft_putchar.c \
-		ft_putstr.c \
-		ft_putnbr.c \
-		ft_puthex.c
+		ft_putchar_len.c \
+		ft_putstr_len.c \
+		ft_putnbr_len.c 
 	
 OBJS = $(SRCS:.c=.o)
 %.o: %.c

@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putadress.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpollast <gpollast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/14 11:27:54 by gpollast          #+#    #+#             */
-/*   Updated: 2025/05/14 11:28:47 by gpollast         ###   ########.fr       */
+/*   Created: 2025/05/16 10:04:03 by gpollast          #+#    #+#             */
+/*   Updated: 2025/05/16 14:56:52 by gpollast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_putchar(char c)
+void	ft_putadress(void *ptr)
 {
-	write(1, &c, 1);
+	char	res;
+
+	if (*ptr > 15)
+		ft_putnbr((*ptr / 16));
+	res = (*ptr % 16) + '0';
+	ft_putchar(res);
 }
