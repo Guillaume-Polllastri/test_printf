@@ -6,7 +6,7 @@
 #    By: gpollast <gpollast@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/27 21:14:10 by gpollast          #+#    #+#              #
-#    Updated: 2025/05/16 15:19:34 by gpollast         ###   ########.fr        #
+#    Updated: 2025/05/16 16:46:56 by gpollast         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,9 @@ SRCS =	main.c \
 		ft_printf.c \
 		ft_putchar_len.c \
 		ft_putstr_len.c \
-		ft_putnbr_len.c 
+		ft_putnbr_len.c \
+		ft_putadress.c \
+		ft_putUnbr_len.c
 	
 OBJS = $(SRCS:.c=.o)
 %.o: %.c

@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_putUnbr_len.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpollast <gpollast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/13 16:57:46 by gpollast          #+#    #+#             */
-/*   Updated: 2025/05/16 17:13:38 by gpollast         ###   ########.fr       */
+/*   Created: 2025/05/16 16:45:14 by gpollast          #+#    #+#             */
+/*   Updated: 2025/05/16 17:05:39 by gpollast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libftprintf.h"
+#include <stdio.h>
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
+int	ft_putUnbr_len(unsigned int n)
+{
+	int		len;
+	char	res;
 
-int		ft_printf(const char *str, ...);
-int 	ft_putchar_len(char c);
-int     ft_putstr_len(char *str);
-int     ft_putnbr_len(int n);
-int     ft_putadress(void *ptr);
-int     ft_putUnbr_len(unsigned int i);
-
-#endif
+	len = 0;
+	if (n > 9)
+		ft_putUnbr_len((n / 10));
+	res = (n % 10) + '0';
+	len = len + ft_putchar_len(res);
+	return(len);
+}
