@@ -6,7 +6,7 @@
 /*   By: gpollast <gpollast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 15:56:09 by gpollast          #+#    #+#             */
-/*   Updated: 2025/05/16 14:29:21 by gpollast         ###   ########.fr       */
+/*   Updated: 2025/05/16 16:17:41 by gpollast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 int	convert(char a, va_list ap)
 {
-	int	len;
-
-	len = 0;
 	if (a == 'c')
 		return(ft_putchar_len((char) va_arg(ap, int)));
 	if (a == 's')
@@ -37,14 +34,16 @@ int	ft_printf(const char *str, ...)
 {
 	int		i;
 	va_list	ap;
-	int		len;  
+	int		len;
+	char	conv_str[10];
 
+	ft_memcpy(conv_str, "cspdiuxX%", 9);
 	i = 0;
 	len = 0;
 	va_start(ap, str);
 	while (str[i])
 	{
-		if (str[i] == '%')
+		if (str[i] == '%' && ft_strchr(conv_str, str[i +1]))
 		{
 			len += convert(str[i + 1], ap);
 			i++;

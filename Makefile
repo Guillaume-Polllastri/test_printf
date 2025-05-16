@@ -6,12 +6,12 @@
 #    By: gpollast <gpollast@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/27 21:14:10 by gpollast          #+#    #+#              #
-#    Updated: 2025/05/16 11:42:03 by gpollast         ###   ########.fr        #
+#    Updated: 2025/05/16 15:19:34 by gpollast         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = #-Wall -Werror -Wextra
 LDFLAGS = -L. -lft -lbsd
 TARGET = a.out
 MAKE = make
