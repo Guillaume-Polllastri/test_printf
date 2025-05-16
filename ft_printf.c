@@ -6,7 +6,7 @@
 /*   By: gpollast <gpollast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 15:56:09 by gpollast          #+#    #+#             */
-/*   Updated: 2025/05/15 15:32:10 by gpollast         ###   ########.fr       */
+/*   Updated: 2025/05/16 10:01:58 by gpollast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@ void	convert(char a, va_list ap)
 	if (a == 's')
 		return(ft_putstr(va_arg(ap, char *)));
 	//if (a == 'p')
-	if (a == 'd')
+	if (a == 'd' || a == 'i')
 		return(ft_putnbr( (int) va_arg(ap, int)));
-	if (a == 'i')
-		return(ft_puthex(va_arg(ap, va_arg(ap, int))));
 	/*if (a == 'u')
 	if (a == 'x')
 	if (a == 'X')*/
