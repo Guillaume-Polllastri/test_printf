@@ -6,14 +6,14 @@
 /*   By: gpollast <gpollast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 15:56:09 by gpollast          #+#    #+#             */
-/*   Updated: 2025/05/19 11:47:49 by gpollast         ###   ########.fr       */
+/*   Updated: 2025/05/19 13:11:25 by gpollast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "libftprintf.h"
 
-int	convert(char a, va_list ap)
+static int	convert(char a, va_list ap)
 {
 	if (a == 'c')
 		return(ft_putchar_len((char) va_arg(ap, int)));
